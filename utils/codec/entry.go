@@ -12,12 +12,12 @@ type Entry struct {
 
 func NewEntry(key, value []byte) *Entry {
 	return &Entry{
-		Key:   key,
+		Key: key,
 		Value: value,
 	}
 }
 
 func (e *Entry) WithTTL(dur time.Duration) *Entry {
-	e.ExpiresAt = uint64(time.Now().Add(dur).Unix())
+	e.ExpiresAt = uint64(time.Now().Add(dur).Unix())//设置失效时间为当前时间+ 时间段
 	return e
 }
